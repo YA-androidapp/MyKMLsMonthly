@@ -1,0 +1,23 @@
+/* Copyright (c) 2022 YA-androidapp(https://github.com/YA-androidapp) All rights reserved. */
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.leaflet-shadow-pane {
+    display: none;
+}
+
+.leaflet-marker-pane {
+    display: none;
+}
