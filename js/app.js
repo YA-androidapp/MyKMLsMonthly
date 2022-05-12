@@ -45,17 +45,11 @@ const listKmlFiles = async () => {
 
 const loadKmls = async () => {
     let files = await listKmlFiles();
-    console.log('length', files.length);
-    // console.log('files', files);
 
-    files.forEach((file, index) => {
-        // console.log('file.download_url', file.download_url);
-        console.log((index + 1) + '/' + files.length, file.download_url);
-
-        omnivore.kml(file.download_url, null,
-            L.geoJson(null,
-                { style: { color: 'red', weight: 1, opacity: 1 }, })).addTo(map);
+    const promises = files.map(async (file) => {
+        omnivore.kml(file.download_url, null, L.geoJson(null, { style: { color: 'red', weight: 1, opacity: 1 }, })).addTo(map);
     });
+    Promise.all(promises);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
